@@ -6,9 +6,8 @@ void ft_get_element(char *line, t_map *map);
 void ft_get_element(char *line, t_map *map)
 {
 	char **split_line;
-	int i;
+	char **colour_split;
 
-	i = 0;
 	split_line = ft_split(line, ' ');
 	if (!ft_strcmp(split_line[0], "NO "))
 		map->texture_path_north = split_line[1];
@@ -20,9 +19,17 @@ void ft_get_element(char *line, t_map *map)
 		map->texture_path_east = split_line[1];
 	else if (!ft_strcmp(split_line[0], "F "))
 	{
-		
+		colour_split = ft_split(split_line[[1], ',')
+		map->floor_colour[0] = colour_split[0]
+		map->floor_colour[1] = colour_split[1]				   
+		map->floor_colour[2] = colour_split[2]			
 	}
-		map->floor_colors = ft_split(split_line[i], ',');
+	
 	else if (!ft_strcmp(split_line[0], "C "))
-		map->ceiling_colors = split_line[1];
+	{
+		colour_split = ft_split(split_line[[1], ',')
+		map->celing_colour[0] = colour_split[0]
+		map->celing_colour[1] = colour_split[1]				   
+		map->celing_colour[2] = colour_split[2]			
+	}
 }
