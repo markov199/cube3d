@@ -65,4 +65,5 @@ void	ft_load_animation(t_game *game, int x, int y, char a);
 void	ft_print_moves_on_screen(t_game *game);
 void	ft_end_game(t_game *game);
 
+int ft_get_element(char *line,t_map **map);
 #endif
