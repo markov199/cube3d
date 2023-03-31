@@ -20,7 +20,7 @@ int	ft_is_valid_map(t_map *map);
 
 // cub3d functions
 
-int	ft_get_element(line, map);
+int	ft_get_element(char **line, t_map *map);
 
 int	main(int ac, char *av[])
 {
