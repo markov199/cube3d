@@ -22,18 +22,18 @@ int ft_get_element(char *line, t_map *map)
 		map->texture_path_east = split_line[1];
 	else if (map->floor_colour[0] = -1 && !ft_strcmp(split_line[0], "F ") && ++element)
 	{
-		colour_split = ft_split(split_line[[1], ',')
-		map->floor_colour[0] = colour_split[0]
-		map->floor_colour[1] = colour_split[1]				   
-		map->floor_colour[2] = colour_split[2]			
+		colour_split = ft_split(split_line[[1], ',');
+		map->floor_colour[0] = ft_atoi(colour_split[0]);
+		map->floor_colour[1] = ft_atoi(colour_split[1]);
+		map->floor_colour[2] = ft_atoi(colour_split[2]);		
 	}
 	
 	else if (map->celing_colour[0] = -1 && !ft_strcmp(split_line[0], "C ") && ++element)
 	{
-		colour_split = ft_split(split_line[[1], ',')
-		map->celing_colour[0] = colour_split[0]
-		map->celing_colour[1] = colour_split[1]				   
-		map->celing_colour[2] = colour_split[2]			
+		colour_split = ft_split(split_line[[1], ',');
+		map->celing_colour[0] = ft_atoi(colour_split[0]);
+		map->celing_colour[1] = ft_atoi(colour_split[1]);			   
+		map->celing_colour[2] = ft_atoi(colour_split[2]);		
 	}
 	return (element);				
 }
