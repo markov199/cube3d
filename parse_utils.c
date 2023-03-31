@@ -1,9 +1,9 @@
 
 #include "cub3d.h"
 
-void ft_get_element(char *line, t_map *map);
+int ft_get_element(char *line, t_map *map);
 
-void ft_get_element(char *line, t_map *map)
+int ft_get_element(char *line, t_map *map)
 {
 	char **split_line;
 	char **colour_split;
