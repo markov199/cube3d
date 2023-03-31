@@ -76,12 +76,12 @@ void	ft_init_tmap(t_map *map, char *av[])
 	map->texture_path_south = NULL;
 	map->texture_path_west = NULL;
 	map->texture_path_east = NULL;
-	map->floor_colors[0] = 0;
-	map->floor_colors[1] = 0;
-	map->floor_colors[2] = 0;
-	map->ceiling_colors[0] = 0;
-	map->ceiling_colors[1] = 0;
-	map->ceiling_colors[2] = 0;
+	map->floor_colors[0] = -1;
+	map->floor_colors[1] = -1;
+	map->floor_colors[2] = -1;
+	map->ceiling_colors[0] = -1;
+	map->ceiling_colors[1] = -1;
+	map->ceiling_colors[2] = -1;
 }
 
 int	ft_read_map_from_file(t_map *map)
