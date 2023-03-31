@@ -9,13 +9,13 @@ int ft_get_element(char *line, t_map *map)
 	char **colour_split;
 
 	split_line = ft_split(line, ' ');
-	if (!ft_strcmp(split_line[0], "NO "))
+	if (map->texture_path_north = NULL && !ft_strcmp(split_line[0], "NO "))
 		map->texture_path_north = split_line[1];
-	else if (!ft_strcmp(split_line[0], "SO "))
+	else if (map->texture_path_south = NULL && !ft_strcmp(split_line[0], "SO "))
 		map->texture_path_south = split_line[1];
-	else if (!ft_strcmp(split_line[0], "WE "))
+	else if (map->texture_path_west = NULL && !ft_strcmp(split_line[0], "WE "))
 		map->texture_path_west = split_line[1];
-	else if (!ft_strcmp(split_line[0], "EA "))
+	else if (map->texture_path_east = NULL && !ft_strcmp(split_line[0], "EA "))
 		map->texture_path_east = split_line[1];
 	else if (!ft_strcmp(split_line[0], "F "))
 	{
