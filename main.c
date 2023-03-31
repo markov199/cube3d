@@ -18,6 +18,10 @@ void 	ft_make_map_rectangle(t_map *map);
 int	ft_valid_rectangle(t_map *map);
 int	ft_is_valid_map(t_map *map);
 
+// cub3d functions
+
+int	ft_get_element(line, map);
+
 int	main(int ac, char *av[])
 {
 	t_map	map;
@@ -86,7 +90,7 @@ int	ft_read_map_from_file(t_map *map)
 	char	buff;
 	int		w;
 	char *line;
-	int num_of_elements;
+	int lines_read;
 
 	w = 0;
 	fd = open(map->filename, O_RDONLY);
@@ -100,8 +104,11 @@ int	ft_read_map_from_file(t_map *map)
 		line = get_next_line(fd);
 		if (line == NULL)
 			break;
-		if (ft_strlen(line) != 0 && num_of_elements++ < 6)
-			ft_get_element(line, map);
+		if (ft_strlen(line) != 0 && lines_read++ < 6)
+			elements +=ft_get_element(line, map);
+		if (lines_read == 6 && elements != 6)
+			return (EXIT_FAILURE);
+		
 		if (buff != '\n')
 			w++;
 		if (buff == '\n')
