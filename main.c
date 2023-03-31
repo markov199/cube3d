@@ -91,7 +91,10 @@ int	ft_read_map_from_file(t_map *map)
 	int		w;
 	char *line;
 	int lines_read;
+	int elements;
 
+	elements = 0;
+	lines_read = 0;
 	w = 0;
 	fd = open(map->filename, O_RDONLY);
 	if (fd < 0)
@@ -101,14 +104,18 @@ int	ft_read_map_from_file(t_map *map)
 	}
 	while (1)
 	{
-		line = get_next_line(fd);
-		if (line == NULL)
-			break;
-		if (ft_strlen(line) != 0 && lines_read++ < 6)
-			elements +=ft_get_element(line, map);
-		if (lines_read == 6 && elements != 6)
+		while(lines_read < 6)
+		{
+			line = get_next_line(fd);
+			if (line == NULL)
+				break;
+			if (ft_strlen(line) != 0 && ++lines_read <= 6)
+				elements += ft_get_element(line, map);
+			free (line);
+		}
+		if (elements != 6)
 			return (EXIT_FAILURE);
-		
+				
 		if (buff != '\n')
 			w++;
 		if (buff == '\n')
