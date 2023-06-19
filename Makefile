@@ -1,13 +1,34 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mkovoor <mkovoor@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/04/10 10:37:19 by ccestini          #+#    #+#              #
+#    Updated: 2023/04/11 13:09:53 by mkovoor          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-NAME		= cub3d
+NAME		= cub3D
+
+MLX_DIR		=	./minilibx
+MLX_FLAGS	=	-lmlx -lz -framework OpenGL -framework AppKit
 
 CC			= cc
-#CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror
+LFLAGS		= -L $(MLX_DIR) -lmlx
 
 RM			= rm -rf
 
 SRCS		= main.c \
-
+			parse/read_file.c parse/read_file_utils.c \
+			parse/get_map.c parse/get_map2.c parse/get_colors.c \
+			parse/get_textures.c parse/check_elements.c \
+			parse/check_map.c parse/check_map2.c \
+			parse/free.c parse/utils.c parse/utils2.c \
+			game/game.c game/player.c game/maths.c \
+			
 
 OBJS		= $(SRCS:.c=.o)
 
@@ -18,11 +39,14 @@ libft.a:
 			@$(MAKE) all -C libft
 
 $(NAME):	libft.a $(OBJS)
-			@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -L ./libft -lft
+			@$(MAKE) -s -C $(MLX_DIR) all
+			@$(CC) $(CFLAGS) $(OBJS) $(MLX_FLAGS) -o $(NAME) $(LFLAGS) -L ./libft -lft
+		
 
 clean:
 			@$(RM) $(OBJS)
 			@$(MAKE) clean -C libft
+#			@$(MAKE) -s -C $(MLX_DIR) clean
 			@printf "\033[35m-> *.o cleaned! <-\033[0m\n"
 
 fclean:		clean
