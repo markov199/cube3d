@@ -1,6 +1,6 @@
 
 
-![cub](https://github.com/markov199/cube3d/assets/99345543/23394215-32ab-43d1-88b7-f5f84dd5e3bc)
+![cub2](https://github.com/markov199/cube3d/assets/99345543/4fb603dc-a515-4294-b947-5effa45d97e6)
 
 
 
